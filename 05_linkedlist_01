@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<stdlib.h>
+void display();
+struct Node{
+    int data;
+    struct Node*next;
+};
+int main()
+{
+    struct Node*first;
+    struct Node*second;
+    struct Node*third;
+    struct Node*fourth;
+
+    first = (struct Node*)malloc(sizeof (struct Node));
+    second = (struct Node*)malloc(sizeof (struct Node));
+    third = (struct Node*)malloc(sizeof (struct Node));
+    fourth = (struct Node*)malloc(sizeof(struct Node));
+
+    first->data = 5;
+    first->next = second;
+    second->data = 10;
+    second->next = third;
+    third ->data = 15;
+    third->next = fourth;
+    fourth->data = 20;
+    fourth->next = NULL;
+    
+    display(first);
+    return 0;
+}
+
+void display(struct Node* ptr) {
+    while(ptr != NULL) {
+        printf("%d ", ptr->data);
+        ptr = ptr->next;
+    }
+}
